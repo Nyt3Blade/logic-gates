@@ -1,5 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Playground from './components/Playground';
 
 const App: React.FC = () => {
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
@@ -17,7 +19,7 @@ const App: React.FC = () => {
     }
   };
 
-  return (
+  const Home = () => (
     <div className="app">
       <nav className="navbar">
         <div className="nav-brand">Logic Gates Explorer</div>
@@ -25,6 +27,7 @@ const App: React.FC = () => {
           <a href="#basic" onClick={(e) => scrollToSection(e, 'basic')}>Basic Gates</a>
           <a href="#advanced" onClick={(e) => scrollToSection(e, 'advanced')}>Advanced Gates</a>
           <a href="#applications" onClick={(e) => scrollToSection(e, 'applications')}>Applications</a>
+          <Link to="/playground" className="playground-link">Playground</Link>
         </div>
       </nav>
 
@@ -34,6 +37,14 @@ const App: React.FC = () => {
       </header>
 
       <main className="content">
+        <div className="playground-section">
+          <h2>Interactive Playground</h2>
+          <p>Experiment with logic gates in our interactive circuit creator. Build, test, and learn how different combinations of gates work together.</p>
+          <Link to="/playground" className="playground-button">
+            Launch Playground
+          </Link>
+        </div>
+
         <section id="basic" className="section">
           <h2>Basic Logic Gates</h2>
           <div className="gates-grid">
@@ -202,6 +213,15 @@ const App: React.FC = () => {
         <p>© 2024 Logic Gates Explorer | Learn Digital Electronics</p>
       </footer>
     </div>
+  );
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/playground" element={<Playground />} />
+      </Routes>
+    </Router>
   );
 };
 

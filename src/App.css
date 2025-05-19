@@ -234,3 +234,81 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Playground section */
+.playground-section {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.playground-section h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.playground-section p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  opacity: 0.9;
+}
+
+.playground-button {
+  display: inline-block;
+  background-color: white;
+  color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+}
+
+.playground-button:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.playground-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.playground-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.playground-link:hover {
+  color: var(--primary-color);
+}
+
+.playground-link:hover::after {
+  width: 100%;
+}
+
+/* Playground page styles */
+.playground {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.playground h1 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
